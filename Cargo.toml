@@ -22,3 +22,5 @@ members = [
     "Concurrency_Advanced_Abstractions/macros",
     "Concurrency_Advanced_Abstractions/futures_async_await"
 ]
+
+resolver = "2"
