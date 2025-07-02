@@ -64,3 +64,8 @@ pub fn constants() -> (u32, f64, char){
     const FERRIS: char = '🦀';
     (MAX_POINTS, PI, FERRIS)
 }
+
+pub fn fixed_length_collection() -> [i32; 3] {
+    let nums: [i32; 3] = [1, 2, 3];
+    nums
+}
