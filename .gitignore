@@ -1,0 +1,32 @@
+# Rust build artifacts
+/target/
+**/target/
+
+# Cargo package files
+**/Cargo.lock
+
+# Backup & editor files
+*.rs.bk
+*.swp
+*.swo
+*~
+*.tmp
+
+# VS Code settings
+.vscode/
+
+# PowerShell history
+*.pshistory
+
+# By-products of tests, coverage, etc.
+**/coverage/
+**/debug/
+**/release/
+
+# Node, Python, or other language artifacts (if any)
+node_modules/
+__pycache__/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

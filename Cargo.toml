@@ -15,7 +15,7 @@ members = [
     "Data_Structures_Organization/enums",
     "Data_Structures_Organization/optional_result",
     "Getting_Started_Basics/initializing_a_project_locally",
-    "Getting_Started_Basics/variables_number_strings_and_bools_",
+    "Getting_Started_Basics/variables_number_strings_and_bools",
     "Getting_Started_Basics/conditionals_loops",
     "Getting_Started_Basics/functions",
     "Concurrency_Advanced_Abstractions/multithreading",
