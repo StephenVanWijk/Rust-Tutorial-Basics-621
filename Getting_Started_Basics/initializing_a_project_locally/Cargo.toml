@@ -1,0 +1,6 @@
+[package]
+name = "initializing_a_project_locally"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

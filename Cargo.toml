@@ -1,0 +1,24 @@
+[workspace]
+members = [
+    "Advanced_Language_Features/traits",
+    "Advanced_Language_Features/generics",
+    "Advanced_Language_Features/lifetimes",
+    "Control_Flow_Data_Interaction/pattern_matching",
+    "Control_Flow_Data_Interaction/package_management",
+    "Core_Memory_Safety_Performance_Concepts/memory_management",
+    "Core_Memory_Safety_Performance_Concepts/mutability",
+    "Core_Memory_Safety_Performance_Concepts/stack_vs_heap",
+    "Core_Memory_Safety_Performance_Concepts/ownership",
+    "Core_Memory_Safety_Performance_Concepts/borrowing",
+    "Core_Memory_Safety_Performance_Concepts/references",
+    "Data_Structures_Organization/structs",
+    "Data_Structures_Organization/enums",
+    "Data_Structures_Organization/optional_result",
+    "Getting_Started_Basics/initializing_a_project_locally",
+    "Getting_Started_Basics/variables_number_strings_and_bools_",
+    "Getting_Started_Basics/conditionals_loops",
+    "Getting_Started_Basics/functions",
+    "Concurrency_Advanced_Abstractions/multithreading",
+    "Concurrency_Advanced_Abstractions/macros",
+    "Concurrency_Advanced_Abstractions/futures_async_await"
+]
