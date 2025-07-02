@@ -69,3 +69,10 @@ pub fn fixed_length_collection() -> [i32; 3] {
     let nums: [i32; 3] = [1, 2, 3];
     nums
 }
+
+pub fn char_from_string() -> (char, Option<char>) {
+    let greeting = "hello";
+    let c1 = greeting.chars().next().unwrap(); // Get the first character from the string
+    let c2: Option<char> = greeting.chars().nth(1000); // Get the second character from the string
+    (c1, c2)
+}
