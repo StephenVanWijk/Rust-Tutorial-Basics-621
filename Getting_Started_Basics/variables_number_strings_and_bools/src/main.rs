@@ -1,5 +1,6 @@
 use variables_number_strings_and_bools:: fixed_length_collection;
 use variables_number_strings_and_bools::char_from_string;
+use variables_number_strings_and_bools::literals_operators;
 
 
 fn main() {
@@ -7,7 +8,9 @@ fn main() {
     dbg!("Collection: {:?}", collection);
     let (a, b) = char_from_string();
     println!("First char: {}, Second char: {:?}", a, b);
-}
+    literals_operators();
+}    
+
 // use variables_number_strings_and_bools::simple_var_example;
 // use variables_number_strings_and_bools::simple_var_overflow_b;
 // use variables_number_strings_and_bools::different_var_forms;
