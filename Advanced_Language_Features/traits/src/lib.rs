@@ -1,1 +1,1 @@
-// Traits library root
+// Lifetimes library root

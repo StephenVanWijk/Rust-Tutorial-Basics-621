@@ -3,6 +3,7 @@ members = [
     "Advanced_Language_Features/traits",
     "Advanced_Language_Features/generics",
     "Advanced_Language_Features/lifetimes",
+    "Advanced_Language_Features/none_main_entry_point",
     "Control_Flow_Data_Interaction/pattern_matching",
     "Control_Flow_Data_Interaction/package_management",
     "Core_Memory_Safety_Performance_Concepts/memory_management",
@@ -20,7 +21,10 @@ members = [
     "Getting_Started_Basics/functions",
     "Concurrency_Advanced_Abstractions/multithreading",
     "Concurrency_Advanced_Abstractions/macros",
-    "Concurrency_Advanced_Abstractions/futures_async_await"
-]
+    "Concurrency_Advanced_Abstractions/futures_async_await",
+    "Experiments/borrow-value",
+    "Experiments/variable",
+    ]
+
 
 resolver = "2"

@@ -127,7 +127,7 @@ pub fn simple_var_overflow_b(){
     println!("x = {}", x);
 }
 
-pub fn tuple_reversed_pair(){
+pub fn tuple_reversed_pair(pair: (i32, bool)) -> (bool, i32) {
     // `let` can be used to bind the members of a tuple to variables
     let (integer, boolean) = pair;
 
