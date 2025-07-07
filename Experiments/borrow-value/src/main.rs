@@ -26,7 +26,7 @@ fn main() {
     {
         let mut borrow_mut = data.borrow_mut();
         *borrow_mut += 1;
-        println!("borrow_mut: {}", borrow_mut);
+        println!("borrow_mut: {}", *borrow_mut);
     } // borrow_mut goes out of scope
 
     {

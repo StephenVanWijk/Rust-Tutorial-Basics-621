@@ -164,7 +164,6 @@ fn main() {
     // This caused an error when trying to use `msg` again in the second arm.
     // The solution is to match on a reference to `msg` instead, which allows us
     // to borrow it without moving it, thus resolving the ownership conflict.
-    
     // We match on `&msg` to borrow it instead of moving it.
     // This resolves the ownership conflict and makes all arms consistent.
     match &msg {
