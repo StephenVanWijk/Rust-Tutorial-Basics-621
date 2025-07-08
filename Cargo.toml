@@ -22,8 +22,8 @@ members = [
     "Concurrency_Advanced_Abstractions/multithreading",
     "Concurrency_Advanced_Abstractions/macros",
     "Concurrency_Advanced_Abstractions/futures_async_await",
-    "Experiments/borrow-value",
-    "Experiments/variable", "Experiments/array", "Experiments/structs-experiments", "Experiments/enums-experiments", "Experiments/consts-experiments",   
+    "Experiments/borrow-value", "Experiments/consts-experiments", "Experiments/enums-experiments", "Experiments/mutability-experiments", "Experiments/structs-experiments", "Experiments/variable",
+    "Experiments/array",
     ]
 
 
