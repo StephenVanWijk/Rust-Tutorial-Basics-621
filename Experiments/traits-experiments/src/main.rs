@@ -1,19 +1,25 @@
 // 2050708 0936CET SDvW 
-// Orphan Rule or Coherence Rule in Rust
-// The orphan rule is a fundamental part of Rust's trait system that ensures coherence and prevents conflicting: 
-// A crucial rule in Rust is the "orphan rule" (or "coherence" rule). 
-// You can only implement a trait for a type if either the trait or the type is defined 
-// within your current crate. This prevents conflicting implementations of traits for external types.
-// In simpler terms:
-// - You can implement a trait for a type if:
-// You cannot implement std::fmt::Display (foreign trait) for Vec<T> (foreign type).
-// You can implement std::fmt::Display (foreign trait) for your MyStruct (local type).
-// You can implement your MyTrait (local trait) for Vec<T> (foreign type).
-// You can implement your MyTrait (local trait) for your MyStruct (local type).
-
 
 // A trait defines a set of methods that a type must implement, representing a shared behavior.
 // It's Rust's primary way of achieving abstraction, similar to interfaces in other languages.
+// Traits can be used to define shared behavior across different types, allowing for polymorphism.
+// Traits can be implemented for any type, including structs, enums, and even primitive types.
+// Traits can also have default method implementations, which can be overridden by the implementing type.
+
+// Orphan Rule or Coherence Rule in Rust
+// The orphan rule is a fundamental part of Rust's trait system that ensures coherence and 
+// prevents conflicting implementations of traits for types. 
+// A crucial rule in Rust is the "orphan rule" (or "coherence" rule). 
+// You can only implement a trait for a type if either the trait or the type is defined 
+// within your current crate. 
+// This prevents conflicting implementations of traits for external types.
+// In simpler terms:
+// You can implement a trait for a type if:
+// std::fmt::Display (foreign trait) for your MyStruct (local type).
+// MyTrait (local trait) for Vec<T> (foreign type).
+// MyTrait (local trait) for MyStruct (local type).
+// You can not implement a trait for a type if:
+// std::fmt::Display (foreign trait) for Vec<T> (foreign type).
 
 // 1. Defining a Trait
 // Here we define a `Summary` trait with one required method `summarize_author` and one
@@ -35,10 +41,14 @@ pub struct NewsArticle {
 }
 
 impl Summary for NewsArticle {
+    // No default implementation for `summarize_author`, so we must provide our own.
     fn summarize_author(&self) -> String {
         format!("@{}", self.author)
     }
-    // We don't provide a `summarize` method, so this struct will use the default one.
+    // We override the default `summarize` implementation for a more specific behavior.
+    fn summarize(&self) -> String {
+        format!("{}: {}", self.headline, self.author)
+    }   
 }
 
 #[derive(Debug)]
