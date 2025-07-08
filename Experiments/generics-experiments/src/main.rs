@@ -40,7 +40,32 @@ struct PointMulti<T, U> {
 // `Option<T>` can be `Some(T)` or `None`.
 // `Result<T, E>` can be `Ok(T)` or `Err(E)`.
 
-// 4. Generic Methods in `impl` blocks
+// 4. Generic Tuple Structs and Methods
+// A generic tuple struct. We derive `Debug` to make it printable.
+#[derive(Debug)]
+struct Pair<T>(T, T);
+
+impl<T> Pair<T> {
+    // `impl<T>` makes the methods generic over the `T` from `Pair<T>`.
+    fn new(x: T, y: T) -> Self {
+        // `Self` here is an alias for the type in the `impl` block: `Pair<T>`.
+        Self(x, y)
+    }
+
+    fn swap(&mut self) {
+        std::mem::swap(&mut self.0, &mut self.1);
+    }
+}
+
+// A method can also be generic over a *different* type from its struct.
+impl<T: std::fmt::Debug> Pair<T> {
+    // This method `compare_to_other_pair` introduces its own generic type `U`.
+    fn compare_to_other_pair<U: std::fmt::Debug>(&self, other: &Pair<U>) {
+        println!("Comparing pairs. Self's first element: {:?}, Other's first element: {:?}", self.0, other.0);
+    }
+}
+
+// 5. Generic Methods in `impl` blocks for `Point`
 // We can implement methods on generic structs.
 impl<T> Point<T> {
     // This method returns a reference to the `x` field of type `&T`.
@@ -84,7 +109,17 @@ fn main() {
     // println!("Distance for integer point: {}", integer_point.distance_from_origin());
     println!("Distance for float point: {}", float_point.distance_from_origin());
 
-    // 5. Performance of Generics: Monomorphization
+    println!("\n--- Generic Tuple Structs and Methods ---");
+    let mut pair_of_numbers = Pair::new(10, 20);
+    println!("Original pair: {:?}", pair_of_numbers);
+    pair_of_numbers.swap();
+    println!("Swapped pair:  {:?}", pair_of_numbers);
+
+    let pair_of_strings = Pair::new("hello", "world");
+    // Using the method that is generic over another type
+    pair_of_numbers.compare_to_other_pair(&pair_of_strings);
+
+    // 6. Performance of Generics: Monomorphization
     // At compile time, Rust generates concrete implementations for each type
     // a generic function or struct is used with. For example, it creates a
     // `largest_i32` and a `largest_char` function. This means there is no
