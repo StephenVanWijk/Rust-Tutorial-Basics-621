@@ -92,6 +92,21 @@ fn returns_summarizable() -> impl Summary {
     // An if/else that returns a Tweet or a NewsArticle would not compile here.
 }
 
+// This function takes two string slices and returns one of them.
+// The lifetime annotation `<'a>` is a generic parameter that lets us tell the
+// compiler about the relationship between the lifetimes of the references.
+//
+// Here, we are telling Rust that the returned reference (`-> &'a str`) will be
+// valid for a lifetime that is the shorter of the lifetimes of `s1` and `s2`.
+// This prevents the returned reference from outliving the data it points to.
+fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str {
+    if s1.len() > s2.len() {
+        s1
+    } else {
+        s2
+    }
+}
+
 fn main() {
     let tweet = Tweet {
         username: String::from("gemini_assist"),
@@ -133,4 +148,13 @@ fn main() {
         // for the concrete type (`Tweet` or `NewsArticle`) inside the Box.
         println!("{}", item.summarize());
     }
+
+    // 6. Standalone Example: Lifetimes
+    // This demonstrates a function with explicit lifetime parameters.
+    println!("\n--- Standalone Example: Lifetimes ---");
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
+    // Usage:
+    let result = longest(string1.as_str(), string2);
+    println!("The longest string is: {}", result); // `result` is valid as long as both `string1` and `string2` are valid.
 }
