@@ -1,3 +1,5 @@
+use std::cell::Cell;
+use std::cell::RefCell;
 // Mutability is about whether a value can be changed. In Rust, values are
 // immutable by default, which is a core part of its safety guarantees.
 
@@ -59,4 +61,21 @@ fn main() {
     // The immutable borrow `first_element` goes out of scope here, so now we can mutate `data`.
     data.push(4);
     println!("The modified data is: {:?}", data);
+
+    // 5. Interior Mutability with `Cell`.
+    // `Cell<T>` allows you to mutate data even when the `Cell` itself is
+    let x = Cell::new(5); // x is immutable, but its interior can change
+    x.set(10);
+    println!("Cell value: {}", x.get()); // Output: Cell value: 10
+
+    // 6. Interior Mutability with `RefCell`.
+    // `RefCell<T>` allows for mutable borrows checked at runtime.
+    // This is useful when you need to mutate data through an immutable reference.
+    let s = RefCell::new(String::from("immutable reference, mutable interior"));
+    // s is immutable, but we can get a mutable borrow of its interior
+    {
+        let mut borrowed_s = s.borrow_mut(); // Runtime borrow check
+        borrowed_s.push_str("!");
+    } // `borrowed_s` goes out of scope, releasing the mutable borrow
+    println!("{}", s.borrow()); // Output: immutable reference, mutable interior!
 }
