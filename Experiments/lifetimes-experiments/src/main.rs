@@ -8,7 +8,7 @@
 // `x: &'a str` and `y: &'a str` mean both references must live at least as long as 'a'.
 // `-> &'a str` means the returned reference is also tied to the lifetime 'a'.
 // This tells the compiler that the returned reference will be valid as long as
-// BOTH of the input references are valid.
+// Both of the input references are valid.
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
